@@ -1,0 +1,8 @@
+library(readr)
+Clean_frailty_data <- read_csv("Downloads/Clean_frailty_data.csv")
+View(Clean_frailty_data)
+library(psych)
+describe(Clean_frailty_data)
+Clean_frailty_data$Frailty <- ifelse(Clean_frailty_data$Frailty == "Y", 1, 0)
+cor(Clean_frailty_data[sapply(Clean_frailty_data, function(x) !is.factor(x))])
+arrange(Clean_frailty_data)
